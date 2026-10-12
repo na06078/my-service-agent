@@ -1,0 +1,194 @@
+{
+  "started_at": "2026-10-12T17:30:39.458243+09:00",
+  "scope": "SDK 직접 MCP 검사. LLM 선택·llama-server 네이티브 연결 검증 아님.",
+  "settings": {
+    "QDRANT_URL": ":memory:",
+    "COLLECTION_NAME": "policies",
+    "EMBEDDING_PROVIDER": "fastembed",
+    "EMBEDDING_MODEL": "BAAI/bge-small-en-v1.5",
+    "FASTEMBED_CACHE_PATH": "C:/my vault/ME/1. Note/Hermes/Aiffel_Work/02_노드실습/MCP_도구활용_실습/03_검색연결/임베딩모델",
+    "HF_HUB_OFFLINE": "1",
+    "OMP_NUM_THREADS": "2",
+    "TOKENIZERS_PARALLELISM": "false",
+    "PYTHONUTF8": "1"
+  },
+  "operations": [
+    {
+      "tool": "qdrant-store",
+      "arguments": {
+        "information": "환불은 구매 후 7일 이내에 가능하다.",
+        "metadata": null
+      },
+      "result": {
+        "meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Remembered: 환불은 구매 후 7일 이내에 가능하다. in collection policies",
+            "annotations": null,
+            "meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      }
+    },
+    {
+      "tool": "qdrant-store",
+      "arguments": {
+        "information": "배송은 영업일 기준 2일이 걸린다.",
+        "metadata": null
+      },
+      "result": {
+        "meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Remembered: 배송은 영업일 기준 2일이 걸린다. in collection policies",
+            "annotations": null,
+            "meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      }
+    },
+    {
+      "tool": "qdrant-store",
+      "arguments": {
+        "information": "회원 등급은 매월 1일에 갱신된다.",
+        "metadata": null
+      },
+      "result": {
+        "meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "Remembered: 회원 등급은 매월 1일에 갱신된다. in collection policies",
+            "annotations": null,
+            "meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      }
+    },
+    {
+      "tool": "qdrant-find",
+      "arguments": {
+        "query": "환불 기한이 어떻게 돼?"
+      },
+      "result": {
+        "meta": null,
+        "content": [
+          {
+            "type": "text",
+            "text": "[\n  \"Results for the query '환불 기한이 어떻게 돼?'\",\n  \"<entry><content>환불은 구매 후 7일 이내에 가능하다.</content><metadata></metadata></entry>\",\n  \"<entry><content>배송은 영업일 기준 2일이 걸린다.</content><metadata></metadata></entry>\",\n  \"<entry><content>회원 등급은 매월 1일에 갱신된다.</content><metadata></metadata></entry>\"\n]",
+            "annotations": null,
+            "meta": null
+          }
+        ],
+        "structuredContent": null,
+        "isError": false
+      }
+    }
+  ],
+  "initialize": {
+    "meta": null,
+    "protocolVersion": "2025-11-25",
+    "capabilities": {
+      "experimental": {},
+      "logging": null,
+      "prompts": {
+        "listChanged": false
+      },
+      "resources": {
+        "subscribe": false,
+        "listChanged": false
+      },
+      "tools": {
+        "listChanged": true
+      },
+      "completions": null,
+      "tasks": null
+    },
+    "serverInfo": {
+      "name": "mcp-server-qdrant",
+      "title": null,
+      "version": "1.30.0",
+      "websiteUrl": null,
+      "icons": null
+    },
+    "instructions": null
+  },
+  "tools": {
+    "meta": null,
+    "nextCursor": null,
+    "tools": [
+      {
+        "name": "qdrant-find",
+        "title": null,
+        "description": "Look up memories in Qdrant. Use this tool when you need to: \n - Find memories by their content \n - Access memories for further analysis \n - Get some personal information about the user",
+        "inputSchema": {
+          "properties": {
+            "query": {
+              "description": "What to search for",
+              "title": "Query",
+              "type": "string"
+            }
+          },
+          "required": [
+            "query"
+          ],
+          "type": "object"
+        },
+        "outputSchema": null,
+        "icons": null,
+        "annotations": null,
+        "meta": null,
+        "execution": null
+      },
+      {
+        "name": "qdrant-store",
+        "title": null,
+        "description": "Keep the memory for later use, when you are asked to remember something.",
+        "inputSchema": {
+          "properties": {
+            "information": {
+              "description": "Text to store",
+              "title": "Information",
+              "type": "string"
+            },
+            "metadata": {
+              "anyOf": [
+                {
+                  "additionalProperties": true,
+                  "type": "object"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "default": null,
+              "description": "Extra metadata stored along with memorised information. Any json is accepted.",
+              "title": "Metadata"
+            }
+          },
+          "required": [
+            "information"
+          ],
+          "type": "object"
+        },
+        "outputSchema": null,
+        "icons": null,
+        "annotations": null,
+        "meta": null,
+        "execution": null
+      }
+    ]
+  },
+  "same_session_store_then_find_pass": true,
+  "status": "pass",
+  "finished_at": "2026-10-12T17:30:46.633944+09:00",
+  "exit_code": 0
+}

@@ -1,0 +1,94 @@
+== 실행 조건 ==
+{
+  "started_at": "2026-10-12T17:24:46.026672+09:00",
+  "model": "Qwen 3.8 27B",
+  "temperature": 0,
+  "description_mode": "textbook",
+  "server": {
+    "build_info": "b11429-d81235049",
+    "model_alias": "Qwen 3.8 27B",
+    "model_path": "C:/Users/YH/.lmstudio/models/0bserverx/Qwen3.8-27B-Heretic-Abliterated-Uncensored-GGUF/RVN-Q4_K_M-multilingual-mtp.gguf"
+  },
+  "thinking_request": {
+    "enable_thinking": false
+  }
+}
+
+== 사용자 요청 ==
+BUSAN-02 창고의 SKU A-17 재고를 알려 줘
+
+[1] 모델의 호출 요청
+[
+  {
+    "name": "get_inventory",
+    "args": {
+      "sku": "A-17",
+      "warehouse_id": "BUSAN-02"
+    },
+    "id": "oWEnxYSGG286hvcTGR09nmlLcPmGztKG",
+    "type": "tool_call"
+  }
+]
+
+[1] 모델의 일반 답변
+
+
+[2] 하네스의 실행 결과
+{
+  "sku": "A-17",
+  "warehouse_id": "BUSAN-02",
+  "available_quantity": 7,
+  "checked_at": "2026-08-27T01:55:00+09:00"
+}
+
+== 실행 오류 원문 ==
+Traceback (most recent call last):
+  File "C:\my vault\ME\1. Note\Hermes\Aiffel_Work\02_노드실습\MCP_도구활용_실습\02_도구실행\.venv\Lib\site-packages\langchain_openai\chat_models\base.py", line 2282, in _agenerate
+    raw_response = await self.async_client.with_raw_response.create(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\my vault\ME\1. Note\Hermes\Aiffel_Work\02_노드실습\MCP_도구활용_실습\02_도구실행\.venv\Lib\site-packages\openai\_legacy_response.py", line 386, in wrapped
+    return cast(LegacyAPIResponse[R], await func(*args, **kwargs))
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\my vault\ME\1. Note\Hermes\Aiffel_Work\02_노드실습\MCP_도구활용_실습\02_도구실행\.venv\Lib\site-packages\openai\resources\chat\completions\completions.py", line 2952, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "C:\my vault\ME\1. Note\Hermes\Aiffel_Work\02_노드실습\MCP_도구활용_실습\02_도구실행\.venv\Lib\site-packages\openai\_base_client.py", line 2053, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\my vault\ME\1. Note\Hermes\Aiffel_Work\02_노드실습\MCP_도구활용_실습\02_도구실행\.venv\Lib\site-packages\openai\_base_client.py", line 1838, in request
+    raise self._make_status_error_from_response(err.response) from None
+openai.InternalServerError: Error code: 500 - {'error': {'code': 500, 'message': "\n------------\nWhile executing CallExpression at line 100, column 24 in source:\n...lti_step_tool %}↵    {{- raise_exception('No user query found in messages.') }}↵...\n                                           ^\nError: Jinja Exception: No user query found in messages.", 'type': 'server_error'}}
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\my vault\ME\1. Note\Hermes\Aiffel_Work\02_노드실습\MCP_도구활용_실습\02_도구실행\inventory_tool.py", line 127, in run_lab
+    second = await llm.ainvoke([
+             ^^^^^^^^^^^^^^^^^^^
+  File "C:\my vault\ME\1. Note\Hermes\Aiffel_Work\02_노드실습\MCP_도구활용_실습\02_도구실행\.venv\Lib\site-packages\langchain_core\runnables\base.py", line 6031, in ainvoke
+    return await self.bound.ainvoke(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\my vault\ME\1. Note\Hermes\Aiffel_Work\02_노드실습\MCP_도구활용_실습\02_도구실행\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 511, in ainvoke
+    llm_result = await self.agenerate_prompt(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\my vault\ME\1. Note\Hermes\Aiffel_Work\02_노드실습\MCP_도구활용_실습\02_도구실행\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1888, in agenerate_prompt
+    return await self.agenerate(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\my vault\ME\1. Note\Hermes\Aiffel_Work\02_노드실습\MCP_도구활용_실습\02_도구실행\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 1846, in agenerate
+    raise exceptions[0]
+  File "C:\my vault\ME\1. Note\Hermes\Aiffel_Work\02_노드실습\MCP_도구활용_실습\02_도구실행\.venv\Lib\site-packages\langchain_core\language_models\chat_models.py", line 2179, in _agenerate_with_cache
+    result = await self._agenerate(
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\my vault\ME\1. Note\Hermes\Aiffel_Work\02_노드실습\MCP_도구활용_실습\02_도구실행\.venv\Lib\site-packages\langchain_openai\chat_models\base.py", line 2289, in _agenerate
+    _handle_openai_api_error(e)
+  File "C:\my vault\ME\1. Note\Hermes\Aiffel_Work\02_노드실습\MCP_도구활용_실습\02_도구실행\.venv\Lib\site-packages\langchain_openai\chat_models\base.py", line 740, in _handle_openai_api_error
+    raise OpenAIAPIError(message=e.message, response=e.response, body=e.body) from e
+langchain_openai.chat_models.base.OpenAIAPIError: Error code: 500 - {'error': {'code': 500, 'message': "\n------------\nWhile executing CallExpression at line 100, column 24 in source:\n...lti_step_tool %}↵    {{- raise_exception('No user query found in messages.') }}↵...\n                                           ^\nError: Jinja Exception: No user query found in messages.", 'type': 'server_error'}}
+
+
+== 실행 종료 ==
+{
+  "status": "error",
+  "exit_code": 1,
+  "finished_at": "2026-10-12T17:25:00.909560+09:00"
+}

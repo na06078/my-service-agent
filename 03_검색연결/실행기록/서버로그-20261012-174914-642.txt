@@ -1,0 +1,39 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20261012174914
+Username: z13flow\YH
+RunAs User: z13flow\YH
+Configuration Name: 
+Machine: Z13FLOW (Microsoft Windows NT 10.0.26200.0)
+Host Application: powershell.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -File C:\my vault\ME\1. Note\Hermes\Aiffel_Work\02_노드실습\MCP_도구활용_실습\03_검색연결\라마서버_실습실행.ps1
+Process ID: 17000
+PSVersion: 5.1.26100.9444
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.9444
+BuildVersion: 10.0.26100.9444
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Starting the existing model with Qdrant MCP only. Built-in file/shell tools are not enabled.
+Open http://127.0.0.1:8080 after the model load completes.
+Keep this console open while using the server.
+Server log: C:\my vault\ME\1. Note\Hermes\Aiffel_Work\02_노드실습\MCP_도구활용_실습\03_검색연결\실행기록\서버로그-20261012-174914-642.txt
+33.21.594.127 I spec common_specu: statistics        draft-mtp: #calls(b,g,a) =    9    285    285, #gen drafts =    285
+, #acc drafts =   244, #gen tokens =    855, #acc tokens =   635, #mean acc len = 3.23, #acc rate/pos = (0.856, 0.723, 0
+.649), dur(b,g,a) = 0.168, 6570.608, 0.666 ms
+33.21.594.335 I slot      release: id  0 | task 240 | stop processing: n_tokens = 1064, truncated = 0
+33.21.594.396 I srv  update_slots: all slots are idle
+102.12.428.628 I srv    operator(): operator(): cleaning up before exit...
+102.12.433.917 I common_memory_breakdown_print: | memory breakdown [MiB]                  | total    free     self   mod
+el   context   compute    unaccounted |
+102.12.433.923 I common_memory_breakdown_print: |   - Vulkan0 (Radeon(TM) 8060S Graphics) | 48971 = 20186 + (24579 = 155
+18 +    8790 +     270) +        4206 |
+102.12.433.924 I common_memory_breakdown_print: |   - Host                                |                    850 =   6
+82 +       0 +     168                |
+PS>TerminatingError(): "파이프라인이 중지되었습니다."
+**********************
+Windows PowerShell transcript end
+End time: 20261012193127
+**********************

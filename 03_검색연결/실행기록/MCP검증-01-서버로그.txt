@@ -1,0 +1,6 @@
+C:\my vault\ME\1. Note\Hermes\Aiffel_Work\02_노드실습\MCP_도구활용_실습\02_도구실행\.venv\Lib\site-packages\fastmcp\server\auth\providers\bearer.py:6: AuthlibDeprecationWarning: authlib.jose module is deprecated, please use joserfc instead.
+It will be compatible before version 2.0.0.
+  from authlib.jose import JsonWebKey, JsonWebToken
+[10/12/26 17:30:46] INFO     Starting MCP server                  server.py:981
+                             'mcp-server-qdrant' with transport                
+                             'stdio'                                           

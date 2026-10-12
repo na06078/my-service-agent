@@ -1,0 +1,21 @@
+{
+  "mcpServers": {
+    "qdrant": {
+      "command": "C:/my vault/ME/1. Note/Hermes/Aiffel_Work/02_노드실습/MCP_도구활용_실습/02_도구실행/.venv/Scripts/python.exe",
+      "args": ["-c", "from mcp_server_qdrant.main import main; main()"],
+      "cwd": "C:/my vault/ME/1. Note/Hermes/Aiffel_Work/02_노드실습/MCP_도구활용_실습/03_검색연결",
+      "env": {
+        "QDRANT_URL": ":memory:",
+        "COLLECTION_NAME": "policies",
+        "EMBEDDING_PROVIDER": "fastembed",
+        "EMBEDDING_MODEL": "BAAI/bge-small-en-v1.5",
+        "FASTEMBED_CACHE_PATH": "C:/my vault/ME/1. Note/Hermes/Aiffel_Work/02_노드실습/MCP_도구활용_실습/03_검색연결/임베딩모델",
+        "HF_HUB_OFFLINE": "1",
+        "OMP_NUM_THREADS": "2",
+        "TOKENIZERS_PARALLELISM": "false",
+        "PYTHONUTF8": "1"
+      },
+      "timeout_ms": 30000
+    }
+  }
+}

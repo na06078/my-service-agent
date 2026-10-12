@@ -1,0 +1,14 @@
+# 비밀값
+.env
+.env.*
+!.env.example
+
+# 용량이 커서 올리지 않는 것 (README의 재현 방법으로 다시 만들 수 있음)
+# 프로젝트 전용 Python 가상환경 (~257MB)
+.venv/
+# FastEmbed ONNX 임베딩 모델 (~65MB). 03_검색연결/준비_임베딩.py로 다시 받음
+03_검색연결/임베딩모델/
+
+# Python 실행 부산물
+__pycache__/
+*.pyc

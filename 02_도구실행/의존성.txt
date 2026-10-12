@@ -1,0 +1,4 @@
+# 실습 2 전용 환경. 기존 Hermes/Hindsight Python 환경에는 설치하지 않습니다.
+langchain-core
+langchain-openai
+mcp-server-qdrant==0.8.1

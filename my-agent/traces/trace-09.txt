@@ -1,0 +1,43 @@
+# 원본: 03_검색연결/실행기록/사용자저장-01.json
+# 내용: llama-server 웹 채팅에서 모델이 qdrant-store 호출 (사용자 공유 출력)
+
+{
+  "source": "사용자가 웹 채팅의 도구 호출 입력·출력을 대화에 직접 공유",
+  "stage": "4단계: 저장 요청",
+  "scope": "사용자 제공 출력의 저장 호출·정상 응답 확인. 어시스턴트의 별도 저장·검색 실행 없음. 저장 내용 재조회는 다음 단계에서 검증.",
+  "model_context": "사용자가 실행한 llama-server / Qwen 3.8 27B 실습",
+  "collection": "policies",
+  "operations": [
+    {
+      "tool": "qdrant_qdrant-store",
+      "input": {
+        "information": "환불은 구매 후 7일 이내에 가능하다."
+      },
+      "output": "Remembered: 환불은 구매 후 7일 이내에 가능하다. in collection policies"
+    },
+    {
+      "tool": "qdrant_qdrant-store",
+      "input": {
+        "information": "배송은 영업일 기준 2일이 걸린다."
+      },
+      "output": "Remembered: 배송은 영업일 기준 2일이 걸린다. in collection policies"
+    },
+    {
+      "tool": "qdrant_qdrant-store",
+      "input": {
+        "information": "회원 등급은 매월 1일에 갱신된다."
+      },
+      "output": "Remembered: 회원 등급은 매월 1일에 갱신된다. in collection policies"
+    }
+  ],
+  "store_responses": "all_reported_success",
+  "find_call_in_shared_output": false,
+  "readback_verified": true,
+  "readback_evidence": "이후 공유된 사용자검색-01.json의 qdrant_qdrant-find 반환에서 앞선 세 문장 일치 확인. 어시스턴트 별도 검색 실행 아님.",
+  "limitations": [
+    "사용자 공유 화면 텍스트이며 서버·브라우저 원본 내보내기 파일이 아님.",
+    "모델의 저장 완료 문장만으로 판정하지 않고 실제 도구 출력과 대조함.",
+    "공유된 추론 문장으로 실제 병렬 실행 여부를 단정하지 않음.",
+    "메모리 저장은 MCP 프로세스 종료 시 소실. 영구 디스크 저장 검증이 아님."
+  ]
+}
